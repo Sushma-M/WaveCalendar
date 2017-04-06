@@ -1,0 +1,145 @@
+<wm-page name="page1" data-ng-controller="MainPageController" pagetitle="Main">
+    <wm-header name="header1" content="header"></wm-header>
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content name="page_content1" columnwidth="12">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn4">
+                        <wm-panel class="panel-primary" name="panel1" title="Calendar Features" margintop="5" width="90%" marginleft="5" collapsible="true">
+                            <wm-panel-footer name="panel_footer1"></wm-panel-footer>
+                            <wm-list name="list1">
+                                <wm-list-item name="list_item1">
+                                    <wm-label name="label16_1" caption="Add an event by clicking on a day" fontsize="14"></wm-label>
+                                </wm-list-item>
+                                <wm-list-item name="list_item2">
+                                    <wm-label caption="Add a multiple day event by selecting and dragging over days" fontsize="14" name="label17"></wm-label>
+                                    <wm-label caption="Add a timed event by selecting Week or Day view" fontsize="14" name="label18"></wm-label>
+                                    <wm-label caption="Move an event to another day/timeslot by holding and dragging the event" fontsize="14" name="label19"></wm-label>
+                                    <wm-label caption="Extend an event duration by extending the events right edge" fontsize="14" name="label20"></wm-label>
+                                </wm-list-item>
+                            </wm-list>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="10" name="gridcolumn5">
+                        <wm-calendar dataset="bind:Variables.getCalendarData.dataSet" on-eventdrop="calendar1Eventdrop($event, $newData, $oldData, $delta, $revertFunc, $ui, $view)" on-eventresize="calendar1Eventresize($event, $newData, $oldData, $delta, $revertFunc, $ui, $view)"
+                        on-eventclick="calendar1Eventclick($event, $data, $view)" on-select="Widgets.dialog1.open()" multiselect="true" name="calendar1" calendartype="agenda" readonlygrid="true" height="500px" controls="navigation,today,month,week,day"></wm-calendar>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1" content="footer"></wm-footer>
+    <wm-view show="false" name="view1" class="dialog-view">
+        <wm-dialog name="dialog1" dialogtype="design-dialog" modal="true" title="Add Event" iconclass="glyphicon glyphicon-edit">
+            <wm-form name="form1" class="app-dialog-form" on-submit="Variables.addEvent.createRecord()">
+                <wm-composite name="composite1">
+                    <wm-label name="label3" class="col-md-3" caption="Event Title" required="true"></wm-label>
+                    <wm-container name="container1" class="col-md-9">
+                        <wm-text name="text1" placeholder="Enter Event TItle" required="true"></wm-text>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite name="composite2">
+                    <wm-label caption="Event Description" name="label4" class="col-md-3"></wm-label>
+                    <wm-container name="container2" class="col-md-9">
+                        <wm-text name="text2" placeholder="Enter Event Description"></wm-text>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite name="composite3">
+                    <wm-checkbox name="checkbox1" caption="All Day" class="col-md-push-3 col-md-9" datavalue="true"></wm-checkbox>
+                </wm-composite>
+                <wm-composite show="bind:Widgets.checkbox1.datavalue" name="composite4">
+                    <wm-label caption="Start Date" name="label5" class="col-md-3"></wm-label>
+                    <wm-container name="container2" class="col-md-9">
+                        <wm-date name="date1" datavalue="bind:Widgets.calendar1.selecteddates.start"></wm-date>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite show="bind:Widgets.checkbox1.datavalue" name="composite5">
+                    <wm-label caption="End Date" name="label6" class="col-md-3"></wm-label>
+                    <wm-container name="container3" class="col-md-9">
+                        <wm-date name="date2" datavalue="bind:Widgets.calendar1.selecteddates.end"></wm-date>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite show="bind:!Widgets.checkbox1.datavalue" name="composite6">
+                    <wm-label caption="Start Date and Time" name="label7" class="col-md-3"></wm-label>
+                    <wm-container name="container4" class="col-md-9">
+                        <wm-datetime name="datetime1" datavalue="bind:Widgets.calendar1.selecteddates.start"></wm-datetime>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite show="bind:!Widgets.checkbox1.datavalue" name="composite7">
+                    <wm-label caption="End Date and Time" name="label8" class="col-md-3"></wm-label>
+                    <wm-container name="container5" class="col-md-9">
+                        <wm-datetime name="datetime2" datavalue="bind:Widgets.calendar1.selecteddates.end"></wm-datetime>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite name="composite8">
+                    <wm-label caption="Event Color" name="label9" class="col-md-3"></wm-label>
+                    <wm-container name="container6" class="col-md-9">
+                        <wm-colorpicker name="colorpicker1"></wm-colorpicker>
+                    </wm-container>
+                </wm-composite>
+                <wm-buttongroup name="buttongroup1" class="form-action col-md-12" vertical="false">
+                    <wm-button class="btn-secondary" caption="Cancel" name="button1" on-click="Widgets.dialog1.close()"></wm-button>
+                    <wm-button class="btn-primary" caption="Save" name="button2"></wm-button>
+                </wm-buttongroup>
+            </wm-form>
+            <wm-dialogactions name="dialogactions1" show="false"></wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+    <wm-view show="false" name="view2" class="dialog-view">
+        <wm-dialog name="dialog2" dialogtype="design-dialog" modal="true" title="Edit Event" iconclass="glyphicon glyphicon-edit">
+            <wm-form name="form2" class="app-dialog-form" on-submit="Variables.updateEvent.updateRecord()">
+                <wm-composite name="composite9">
+                    <wm-label name="label10" class="col-md-3" caption="Selected Event Title" required="true"></wm-label>
+                    <wm-container name="container9" class="col-md-9">
+                        <wm-text datavalue="bind:Variables.readEvent.dataSet.data[0].title" name="text3" required="true"></wm-text>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite name="composite10">
+                    <wm-label caption="Selected Event Description" name="label11" class="col-md-3"></wm-label>
+                    <wm-container name="container7" class="col-md-9">
+                        <wm-text datavalue="bind:Variables.readEvent.dataSet.data[0].description" name="text4"></wm-text>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite name="composite11">
+                    <wm-checkbox caption="All Day" class="col-md-push-3 col-md-9" name="checkbox2" datavalue="bind:Variables.readEvent.dataSet.data[0].allDay"></wm-checkbox>
+                </wm-composite>
+                <wm-composite show="bind:Widgets.checkbox2.datavalue" name="composite12">
+                    <wm-label caption="Selected Start Date" name="label12" class="col-md-3"></wm-label>
+                    <wm-container name="container8" class="col-md-9">
+                        <wm-date datavalue="bind:Variables.readEvent.dataSet.data[0].start" name="date3"></wm-date>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite show="bind:Widgets.checkbox2.datavalue" name="composite13">
+                    <wm-label caption="Selected End Date" name="label13" class="col-md-3"></wm-label>
+                    <wm-container name="container9" class="col-md-9">
+                        <wm-date datavalue="bind:Variables.readEvent.dataSet.data[0].end" name="date4"></wm-date>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite show="bind:!Widgets.checkbox2.datavalue" name="composite14">
+                    <wm-label caption="Selected Start Date and Time" name="label14" class="col-md-3"></wm-label>
+                    <wm-container name="container10" class="col-md-9">
+                        <wm-datetime datavalue="bind:Variables.readEvent.dataSet.data[0].start" name="datetime3"></wm-datetime>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite show="bind:!Widgets.checkbox2.datavalue" name="composite15">
+                    <wm-label name="label15" class="col-md-3" caption="Selected End Date and Time"></wm-label>
+                    <wm-container name="container11" class="col-md-9">
+                        <wm-datetime datavalue="bind:Variables.readEvent.dataSet.data[0].end" name="datetime4"></wm-datetime>
+                    </wm-container>
+                </wm-composite>
+                <wm-composite name="composite16">
+                    <wm-label name="label16" class="col-md-3" caption="Color"></wm-label>
+                    <wm-container name="container12" class="col-md-9">
+                        <wm-colorpicker datavalue="bind:Variables.readEvent.dataSet.data[0].color" name="colorpicker2"></wm-colorpicker>
+                    </wm-container>
+                </wm-composite>
+                <wm-buttongroup name="buttongroup2" class="form-action col-md-12">
+                    <wm-button class="btn-secondary" caption="Cancel" name="button3" on-click="Widgets.dialog2.close()"></wm-button>
+                    <wm-button class="btn-primary" caption="Update Event" name="button4" show="true"></wm-button>
+                </wm-buttongroup>
+            </wm-form>
+            <wm-dialogactions name="dialogactions2"></wm-dialogactions>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

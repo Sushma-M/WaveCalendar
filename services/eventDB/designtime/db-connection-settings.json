@@ -1,0 +1,36 @@
+{
+  "username" : "sa",
+  "password" : "7b6a43524a78700d662158",
+  "url" : "jdbc:hsqldb:file:{WebAppRoot}/WEB-INF/data/eventDB;shutdown=true;hsqldb.lock_file=false;",
+  "driverClass" : "org.hsqldb.jdbcDriver",
+  "dialect" : "org.hibernate.dialect.HSQLDialect",
+  "serviceId" : "eventDB",
+  "packageName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb",
+  "dbType" : "HSQLDB",
+  "host" : "localhost",
+  "dbName" : "eventDB",
+  "port" : null,
+  "schemaName" : "PUBLIC",
+  "tableFilter" : [ {
+    "table" : "EVENTS",
+    "schema" : "PUBLIC"
+  }, {
+    "table" : "USER",
+    "schema" : "PUBLIC"
+  } ],
+  "schemaFilter" : [ "PUBLIC" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "message" : "To generate newly added APIs for database services and to generate changes in POJOs for schema based sequences",
+    "reason" : "MIGRATION_FAILED",
+    "reload" : true
+  },
+  "readOnly" : true
+}

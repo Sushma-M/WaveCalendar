@@ -1,0 +1,25 @@
+[ {
+  "name" : "Common",
+  "type" : "PARTIAL"
+}, {
+  "name" : "Login",
+  "type" : "PAGE"
+}, {
+  "name" : "Main",
+  "type" : "PAGE"
+}, {
+  "name" : "footer",
+  "type" : "PARTIAL"
+}, {
+  "name" : "header",
+  "type" : "PARTIAL"
+}, {
+  "name" : "leftnav",
+  "type" : "PARTIAL"
+}, {
+  "name" : "rightnav",
+  "type" : "PARTIAL"
+}, {
+  "name" : "topnav",
+  "type" : "PARTIAL"
+} ]

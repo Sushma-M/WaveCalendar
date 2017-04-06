@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="userevents">
+        <![CDATA[
+        SELECT E.ID as "id", E.START as "start",E.END AS "end",E.ALL_DAY as "allDay",E.TITLE as "title" , E.URL as url,E.DESCRIPTION as  "description",E.COLOR as "color" FROM EVENTS E WHERE START BETWEEN :startdate  AND :enddate AND USERID=:loggedinuser
+        ]]>
+    <query-param name="startdate" type="java.sql.Timestamp"/>
+    <query-param name="enddate" type="java.sql.Timestamp"/>
+    <query-param name="loggedinuser" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="userevents__count">
+        <![CDATA[
+        select count(*) from (SELECT E.ID as "id", E.START as "start",E.END AS "end",E.ALL_DAY as "allDay",E.TITLE as "title" , E.URL as url,E.DESCRIPTION as  "description",E.COLOR as "color" FROM EVENTS E WHERE START BETWEEN :startdate  AND :enddate AND USERID=:loggedinuser) wmTempTable
+        ]]>
+    <query-param name="startdate" type="java.sql.Timestamp"/>
+    <query-param name="enddate" type="java.sql.Timestamp"/>
+    <query-param name="loggedinuser" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

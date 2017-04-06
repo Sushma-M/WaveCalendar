@@ -1,0 +1,865 @@
+{
+  "addEvent" : {
+    "_id" : "wm-addEvent-wm.LiveVariable-1452059665870",
+    "name" : "addEvent",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ {
+      "target" : "start",
+      "value" : "bind:Widgets.checkbox1.datavalue ? Widgets.date1.datavalue : Widgets.datetime1.datavalue",
+      "type" : "datetime"
+    }, {
+      "target" : "end",
+      "value" : "bind:Widgets.checkbox1.datavalue ? Widgets.date2.datavalue : Widgets.datetime2.datavalue",
+      "type" : "datetime"
+    }, {
+      "target" : "allDay",
+      "value" : "bind:Widgets.checkbox1.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "title",
+      "value" : "bind:Widgets.text1.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "description",
+      "value" : "bind:Widgets.text2.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "color",
+      "value" : "bind:Widgets.colorpicker1.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "user",
+      "value" : "bind:Variables.readloggeduserdata.dataSet.data[0]",
+      "type" : "number"
+    } ],
+    "operation" : "insert",
+    "dataSet" : [ ],
+    "type" : "Events",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onResult" : "Variables.getCalendarData.invoke()",
+    "onSuccess" : "Widgets.dialog1.close();Variables.insert_success_toast.invoke()",
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "transformationRequired" : false,
+    "liveSource" : "eventDB",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "user",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "USERID",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "0",
+        "relatedTableName" : "USER",
+        "relatedEntityName" : "User",
+        "relatedColumnName" : "userid",
+        "relatedFieldName" : "user.userid",
+        "isList" : false,
+        "targetTable" : "USER",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "userid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "USERID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "username",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "USERNAME",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "password",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "PASSWORD",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "role",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "ROLE",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "ID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "start",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "START",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 26,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "end",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "END",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 26,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "allDay",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "ALL_DAY",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "false",
+        "scale" : 0
+      }, {
+        "fieldName" : "title",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "TITLE",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "url",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "URL",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "description",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "DESCRIPTION",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "color",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "COLOR",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Events",
+      "fullyQualifiedName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "tableName" : "EVENTS",
+    "tableType" : "TABLE",
+    "properties" : [ "user" ],
+    "relatedTables" : [ {
+      "columnName" : "user",
+      "relationName" : "user",
+      "type" : "User",
+      "watchOn" : "EventDBUserData",
+      "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events"
+    } ],
+    "filterFields" : { },
+    "inputFields" : { },
+    "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events"
+  },
+  "eventId" : {
+    "_id" : "wm-eventId-wm.Variable-1452059372727",
+    "name" : "eventId",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "getCalendarData" : {
+    "_id" : "wm-getCalendarData-wm.ServiceVariable-1452220359960",
+    "name" : "getCalendarData",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "startdate",
+      "value" : "bind:Widgets.calendar1.currentview.start",
+      "type" : "string"
+    }, {
+      "target" : "enddate",
+      "value" : "bind:Widgets.calendar1.currentview.end",
+      "type" : "string"
+    }, {
+      "target" : "loggedinuser",
+      "value" : "bind:Variables.loggedInUser.dataSet.id",
+      "type" : "integer"
+    } ],
+    "type" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.models.query.UsereventsResponse",
+    "service" : "eventDB",
+    "operation" : "executeUserevents",
+    "operationId" : "QueryExecutionController_executeUserevents",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : true,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  },
+  "insert_success_toast" : {
+    "_id" : "wm-insert_success_toast-wm.NotificationVariable-1452063512381",
+    "name" : "insert_success_toast",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "duration",
+      "value" : "2000"
+    }, {
+      "target" : "text",
+      "value" : "Event Added Successfully"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right"
+    }, {
+      "target" : "class",
+      "value" : "Success"
+    } ],
+    "operation" : "toast"
+  },
+  "readEvent" : {
+    "_id" : "wm-readEvent-wm.LiveVariable-1452059431647",
+    "name" : "readEvent",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Events",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "eventDB",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "user",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "USERID",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "0",
+        "relatedTableName" : "USER",
+        "relatedEntityName" : "User",
+        "relatedColumnName" : "userid",
+        "relatedFieldName" : "user.userid",
+        "isList" : false,
+        "targetTable" : "USER",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "userid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "USERID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "username",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "USERNAME",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "password",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "PASSWORD",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "role",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "ROLE",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "ID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "start",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "START",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 26,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "end",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "END",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 26,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "allDay",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "ALL_DAY",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "false",
+        "scale" : 0
+      }, {
+        "fieldName" : "title",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "TITLE",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "url",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "URL",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "description",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "DESCRIPTION",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "color",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "COLOR",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Events",
+      "fullyQualifiedName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "tableName" : "EVENTS",
+    "tableType" : "TABLE",
+    "properties" : [ "user" ],
+    "relatedTables" : [ {
+      "columnName" : "user",
+      "relationName" : "user",
+      "type" : "User",
+      "watchOn" : "EventDBUserData",
+      "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events"
+    } ],
+    "filterFields" : { },
+    "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events"
+  },
+  "readloggeduserdata" : {
+    "_id" : "wm-readloggeduserdata-wm.LiveVariable-1452059206252",
+    "name" : "readloggeduserdata",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ {
+      "target" : "userid",
+      "value" : "bind:Variables.loggedInUser.dataSet.id",
+      "type" : "number"
+    } ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "User",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "eventDB",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "userid",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "USERID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "username",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "USERNAME",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "password",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "PASSWORD",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "role",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "ROLE",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "User",
+      "fullyQualifiedName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.User",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "userid" ]
+    },
+    "tableName" : "USER",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterFields" : { },
+    "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.User"
+  },
+  "update_success_toast" : {
+    "_id" : "wm-update_success_toast-wm.NotificationVariable-1452063557133",
+    "name" : "update_success_toast",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "duration",
+      "value" : "2000"
+    }, {
+      "target" : "text",
+      "value" : "Event Updated Successfully"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right"
+    }, {
+      "target" : "class",
+      "value" : "Info"
+    } ],
+    "operation" : "toast"
+  },
+  "updateEvent" : {
+    "_id" : "wm-updateEvent-wm.LiveVariable-1452059893970",
+    "name" : "updateEvent",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ {
+      "target" : "id",
+      "value" : "bind:Variables.eventId.dataSet.dataValue",
+      "type" : "number"
+    }, {
+      "target" : "start",
+      "value" : "bind:Widgets.checkbox2.datavalue ? Widgets.date3.datavalue : Widgets.datetime3.datavalue",
+      "type" : "datetime"
+    }, {
+      "target" : "end",
+      "value" : "bind:Widgets.checkbox2.datavalue ? Widgets.date4.datavalue : Widgets.datetime4.datavalue",
+      "type" : "datetime"
+    }, {
+      "target" : "allDay",
+      "value" : "bind:Widgets.checkbox2.datavalue",
+      "type" : "boolean"
+    }, {
+      "target" : "title",
+      "value" : "bind:Widgets.text3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "description",
+      "value" : "bind:Widgets.text4.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "color",
+      "value" : "bind:Widgets.colorpicker2.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "user",
+      "value" : "bind:Variables.readloggeduserdata.dataSet.data[0]",
+      "type" : "number"
+    } ],
+    "operation" : "update",
+    "dataSet" : [ ],
+    "type" : "Events",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onResult" : "Variables.getCalendarData.invoke()",
+    "onSuccess" : "Widgets.dialog2.close();Variables.update_success_toast.invoke()",
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "transformationRequired" : false,
+    "liveSource" : "eventDB",
+    "ignoreCase" : true,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "user",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "USERID",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "0",
+        "relatedTableName" : "USER",
+        "relatedEntityName" : "User",
+        "relatedColumnName" : "userid",
+        "relatedFieldName" : "user.userid",
+        "isList" : false,
+        "targetTable" : "USER",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "userid",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "USERID",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "username",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "USERNAME",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "password",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "PASSWORD",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "role",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "ROLE",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "ID",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "start",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "START",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 26,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "end",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "END",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 26,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "allDay",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "ALL_DAY",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "false",
+        "scale" : 0
+      }, {
+        "fieldName" : "title",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "TITLE",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "url",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "URL",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "description",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "DESCRIPTION",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "color",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "COLOR",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Events",
+      "fullyQualifiedName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "tableName" : "EVENTS",
+    "tableType" : "TABLE",
+    "properties" : [ "user" ],
+    "relatedTables" : [ {
+      "columnName" : "user",
+      "relationName" : "user",
+      "type" : "User",
+      "watchOn" : "EventDBUserData",
+      "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events"
+    } ],
+    "filterFields" : { },
+    "inputFields" : { },
+    "package" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "enforceSecurity" : true,
+  "loginConfig" : {
+    "type" : "PAGE",
+    "pageName" : "Login",
+    "sessionTimeout" : {
+      "type" : "DIALOG",
+      "pageName" : "",
+      "timeoutValue" : 30
+    }
+  },
+  "rememberMeConfig" : {
+    "enabled" : true,
+    "tokenValiditySeconds" : 1296000
+  },
+  "sslConfig" : {
+    "sslPort" : 443,
+    "useSSL" : false,
+    "excludedUrls" : null
+  },
+  "xssConfig" : null,
+  "csrfConfig" : null,
+  "tokenAuthConfig" : {
+    "enabled" : true,
+    "parameter" : "WM_AUTH_TOKEN",
+    "tokenValiditySeconds" : 1800
+  },
+  "authProviders" : [ "DATABASE" ]
+}

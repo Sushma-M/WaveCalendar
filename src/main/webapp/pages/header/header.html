@@ -1,0 +1,13 @@
+<wm-partial data-ng-controller="headerPageController" name="header" type="header"> 
+ <wm-layoutgrid name="headerlayout"> 
+  <wm-gridrow name="headerrow"> 
+   <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="7"> 
+    <wm-picture picturesource="resources/images/logos/logo.png" name="AppLogo" marginleft="5"></wm-picture> 
+    <wm-label caption="WaveCalendar" class="application-name" name="AppName" fontsize="20"></wm-label> 
+   </wm-gridcolumn> 
+   <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="5" paddingunit="em" paddingtop="1" paddingright="1"> 
+    <wm-label name="label3_1" caption="bind:&quot;Hi &quot; +Variables.loggedInUser.dataSet.name" fontweight="bold" fontsize="18" marginleft="5" margintop="5"></wm-label> 
+   </wm-gridcolumn> 
+  </wm-gridrow> 
+ </wm-layoutgrid> 
+</wm-partial>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wavemaker.sampleapps.web.wavecalendar.eventdb">
+  <class table="`EVENTS`" entity-name="com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events" schema="PUBLIC">
+    <id name="id" type="integer">
+      <column name="`ID`" length="255" not-null="true" precision="19"/>
+      <generator class="identity"/>
+    </id>
+    <property name="start" type="timestamp">
+      <column name="`START`" length="26" not-null="false" precision="19"/>
+    </property>
+    <property name="end" type="timestamp">
+      <column name="`END`" length="26" not-null="false" precision="19"/>
+    </property>
+    <property name="allDay" type="java.lang.Boolean">
+      <column name="`ALL_DAY`" length="255" not-null="false" precision="19" default="false"/>
+    </property>
+    <property name="title" type="string">
+      <column name="`TITLE`" length="255" not-null="true" precision="19"/>
+    </property>
+    <property name="url" type="string">
+      <column name="`URL`" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="description" type="string">
+      <column name="`DESCRIPTION`" length="255" not-null="false" precision="19"/>
+    </property>
+    <property name="color" type="string">
+      <column name="`COLOR`" length="255" not-null="false" precision="19"/>
+    </property>
+    <many-to-one
+      name="user"
+      class="User"
+      fetch="select">
+      <meta attribute="mapping-USERID">
+        USERID
+      </meta>
+      <column name="`USERID`" length="255" not-null="true" precision="19" default="'0'"/>
+    </many-to-one>
+  </class>
+  <class table="`USER`" entity-name="com.wavemaker.sampleapps.web.wavecalendar.eventdb.User" schema="PUBLIC">
+    <id name="userid" type="integer">
+      <column name="`USERID`" length="255" not-null="true" precision="19"/>
+      <generator class="identity"/>
+    </id>
+    <property name="username" type="string">
+      <column name="`USERNAME`" length="255" not-null="true" precision="19"/>
+    </property>
+    <property name="password" type="string">
+      <column name="`PASSWORD`" length="255" not-null="true" precision="19"/>
+    </property>
+    <property name="role" type="string">
+      <column name="`ROLE`" length="255" not-null="true" precision="19"/>
+    </property>
+    <set name="eventses" table="EVENTS" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="`USERID`"/>
+      </key>
+      <one-to-many class="Events"/>
+    </set>
+  </class>
+</hibernate-mapping>

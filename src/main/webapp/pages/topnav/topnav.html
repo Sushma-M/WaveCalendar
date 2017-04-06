@@ -1,0 +1,16 @@
+<wm-partial data-ng-controller="topnavPageController" name="topnav" type="top-nav"> 
+ <wm-navbar name="navbar1"> 
+  <wm-nav name="leftTopLinks" type="navbar" class="navbar-left"> 
+   <wm-nav-item name="list_home"> 
+    <wm-anchor caption="Home" name="homeButton" iconclass="glyphicon glyphicon-home" on-click="Variables.goToPage_Main.invoke()"></wm-anchor> 
+   </wm-nav-item> 
+   <wm-nav-item name="list_services"></wm-nav-item> 
+  </wm-nav> 
+  <wm-nav name="rightTopLinks" type="navbar" class="navbar-right"> 
+   <wm-nav-item name="list_home"></wm-nav-item> 
+   <wm-nav-item name="list_services"> 
+    <wm-anchor caption="Logout" name="logoutButton" iconclass="glyphicon glyphicon-user" on-click="Variables.logoutVariable.invoke()"></wm-anchor> 
+   </wm-nav-item> 
+  </wm-nav> 
+ </wm-navbar> 
+</wm-partial>

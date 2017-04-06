@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <context:component-scan base-package="com.wavemaker.sampleapps.web.wavecalendar.eventdb.controller,com.wavemaker.sampleapps.web.wavecalendar.eventdb.service,com.wavemaker.sampleapps.web.wavecalendar.eventdb.dao" xmlns:context="http://www.springframework.org/schema/context"/>
+    <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>
+                    classpath:eventDB.properties
+                </value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" lazy-init="true" depends-on="systemPropertyInitializer" destroy-method="close" id="eventDBWMManagedDataSource" p:unreturnedConnectionTimeout="300" p:password="${eventDB.password}" p:checkoutTimeout="30000" p:contextClassLoaderSource="library" p:maxIdleTime="600" p:privilegeSpawnedThreads="true" p:debugUnreturnedConnectionStackTraces="true" p:acquireRetryAttempts="3" p:acquireRetryDelay="1000" p:jdbcUrl="${eventDB.url}" p:user="${eventDB.username}" p:driverClass="${eventDB.driverClass}" p:maxStatementsPerConnection="20" p:maxPoolSize="${eventDB.maxPoolSize}" p:maxStatements="50" p:idleConnectionTestPeriod="300" p:minPoolSize="${eventDB.minPoolSize}" xmlns:p="http://www.springframework.org/schema/p"/>
+    <bean class="com.wavemaker.runtime.data.interceptors.WMEntityInterceptor" id="eventDBEntityInterceptor"/>
+    <bean class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean" id="eventDBSessionFactory">
+        <property name="dataSource" ref="eventDBDataSource"/>
+        <property name="packagesToScan" value="com.wavemaker.sampleapps.web.wavecalendar.eventdb"/>
+        <property name="entityInterceptor" ref="eventDBEntityInterceptor"/>
+        <property name="mappingResources">
+            <list>
+                <value>
+                eventDB-queries.hbm.xml
+                </value>
+            </list>
+        </property>
+        <property name="customTypes">
+            <array value-type="com.wavemaker.runtime.data.CustomType">
+                <ref bean="dateTimeCustomType"/>
+            </array>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                ${eventDB.dialect}
+                </prop>
+                <prop key="hibernate.default_schema">
+                ${eventDB.schemaName}
+                </prop>
+                <prop key="hibernate.show_sql">
+                    false
+                </prop>
+                <prop key="hibernate.globally_quoted_identifiers">
+                    false
+                </prop>
+                <prop key="hibernate.hbm2ddl.auto">
+                ${eventDB.hbm2ddl}
+                </prop>
+                <prop key="hibernate.temp.use_jdbc_metadata_defaults">
+                    false
+                </prop>
+                <prop key="hibernate.schema_update.unique_constraint_strategy">
+                    skip
+                </prop>
+                <prop key="hibernate.id.new_generator_mappings">true</prop>
+            </props>
+        </property>
+    </bean>
+    <bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="eventDBTransactionManager">
+        <property name="sessionFactory" ref="eventDBSessionFactory"/>
+    </bean>
+    <bean class="org.springframework.orm.hibernate4.HibernateTemplate" id="eventDBTemplate">
+        <property name="sessionFactory" ref="eventDBSessionFactory"/>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl" id="eventDBWMQueryExecutor">
+        <property name="template" ref="eventDBTemplate"/>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl" id="eventDBWMProcedureExecutor">
+        <property name="template" ref="eventDBTemplate"/>
+        <property name="serviceId" value="eventDB"/>
+    </bean>
+    <bean class="com.wavemaker.commons.data.type.WMPersistentLocalDateTime" id="persistentLocalDateTimeType"/>
+    <bean class="com.wavemaker.runtime.data.CustomType" id="dateTimeCustomType">
+        <property name="type" ref="persistentLocalDateTimeType"/>
+        <property name="keys">
+            <list>
+                <value>DateTime</value>
+                <value>org.joda.time.LocalDateTime</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" id="eventDBPageableHandlerMethodResolver">
+        <property name="pageParameterName" value="page"/>
+        <property name="sizeParameterName" value="size"/>
+        <property name="oneIndexedParameters" value="true"/>
+        <property name="maxPageSize" value="${eventDB.maxPageSize}"/>
+        <property name="fallbackPageable">
+            <bean class="org.springframework.data.domain.PageRequest">
+                <constructor-arg value="0"/>
+                <constructor-arg value="20"/>
+            </bean>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.datasource.WMDataSource" id="eventDBDataSource">
+        <property name="dataSourceType" value="${eventDB.dataSourceType}"/>
+        <property name="jndiName" value="${eventDB.jndiName}"/>
+        <property name="serviceId" value="eventDB"/>
+    </bean>
+    <tx:annotation-driven xmlns:tx="http://www.springframework.org/schema/tx"/>
+</beans>

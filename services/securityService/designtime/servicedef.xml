@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="securityService" class="com.wavemaker.runtime.security.SecurityService" type="SecurityServiceType" springFile="securityService.spring.xml">
+    <operation name="logout"/>
+    <operation name="getUserId">
+        <return typeRef="java.lang.String" isList="false"/>
+    </operation>
+    <operation name="isAuthenticated">
+        <return typeRef="boolean" isList="false"/>
+    </operation>
+    <operation name="isSecurityEnabled">
+        <return typeRef="java.lang.Boolean" isList="false"/>
+    </operation>
+    <operation name="setRoles">
+        <parameter name="roles" typeRef="java.lang.String" isList="true"/>
+    </operation>
+    <operation name="getLoginTime">
+        <return typeRef="long" isList="false"/>
+    </operation>
+    <operation name="getCASProxyTicket">
+        <parameter name="serviceUrl" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="java.lang.String" isList="false"/>
+    </operation>
+    <operation name="getUserRoles">
+        <return typeRef="java.lang.String" isList="true"/>
+    </operation>
+    <operation name="getTenantId">
+        <return typeRef="int" isList="false"/>
+    </operation>
+    <operation name="getLoggedInUser">
+        <return typeRef="com.wavemaker.runtime.security.WMCurrentUser" isList="false"/>
+    </operation>
+    <operation name="getRoles">
+        <return typeRef="java.lang.String" isList="true"/>
+    </operation>
+    <operation name="getUserName">
+        <return typeRef="java.lang.String" isList="false"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.wavemaker.runtime.security.WMCurrentUser" name="WMCurrentUser" supportsQuickData="false">
+            <element name="tenantId" typeRef="int" isList="false" allowNull="false"/>
+            <element name="loginTime" typeRef="long" isList="false" allowNull="false"/>
+            <element name="userRoles" typeRef="java.lang.String" isList="true" allowNull="false"/>
+            <element name="authenticated" typeRef="boolean" isList="false" allowNull="false"/>
+            <element name="userId" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="userName" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="securityEnabled" typeRef="boolean" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

@@ -1,0 +1,117 @@
+{
+  "userevents" : {
+    "name" : "userevents",
+    "description" : "Get User Events based on Logged In User and Start and End timestamps.",
+    "version" : "V1",
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "response" : {
+      "typeRef" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.models.query.UsereventsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "URL",
+        "fieldName" : "url",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "allDay",
+        "fieldName" : "allDay",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "color",
+        "fieldName" : "color",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "end",
+        "fieldName" : "end",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "start",
+        "fieldName" : "start",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "title",
+        "fieldName" : "title",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    },
+    "queryString" : "SELECT E.ID as \"id\", E.START as \"start\",E.END AS \"end\",E.ALL_DAY as \"allDay\",E.TITLE as \"title\" , E.URL as url,E.DESCRIPTION as  \"description\",E.COLOR as \"color\" FROM EVENTS E WHERE START BETWEEN :startdate  AND :enddate AND USERID=:loggedinuser",
+    "countQueryString" : "select count(*) from (SELECT E.ID as \"id\", E.START as \"start\",E.END AS \"end\",E.ALL_DAY as \"allDay\",E.TITLE as \"title\" , E.URL as url,E.DESCRIPTION as  \"description\",E.COLOR as \"color\" FROM EVENTS E WHERE START BETWEEN :startdate  AND :enddate AND USERID=:loggedinuser) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "startdate",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "1481005217000",
+      "required" : true
+    }, {
+      "name" : "enddate",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "1481869222000",
+      "required" : true
+    }, {
+      "name" : "loggedinuser",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "1",
+      "required" : true
+    } ]
+  }
+}
