@@ -28,9 +28,9 @@
   "dataSourceType" : "WM_MANAGED_DATASOURCE",
   "jndiName" : "",
   "reloadInfo" : {
-    "message" : "To generate newly added APIs for database services and to generate changes in POJOs for schema based sequences",
-    "reason" : "MIGRATION_FAILED",
-    "reload" : true
+    "reload" : false,
+    "reason" : null,
+    "message" : null
   },
   "readOnly" : true
 }

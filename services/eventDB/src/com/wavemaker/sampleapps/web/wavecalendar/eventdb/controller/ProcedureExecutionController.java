@@ -9,13 +9,17 @@ package com.wavemaker.sampleapps.web.wavecalendar.eventdb.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wavemaker.sampleapps.web.wavecalendar.eventdb.service.EventDBProcedureExecutorService;
+import com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutor;
 import com.wordnik.swagger.annotations.Api;
 
-@RestController(value = "EventDb.ProcedureExecutionController")
+import com.wavemaker.sampleapps.web.wavecalendar.eventdb.service.EventDBProcedureExecutorService;
+
+@RestController(value = "EventDB.ProcedureExecutionController")
 @RequestMapping("/eventDB/procedureExecutor")
 @Api(value = "ProcedureExecutionController", description = "controller class for procedure execution")
 public class ProcedureExecutionController {

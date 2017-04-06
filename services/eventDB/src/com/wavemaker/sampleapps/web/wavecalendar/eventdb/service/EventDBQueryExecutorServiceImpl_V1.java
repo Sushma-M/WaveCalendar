@@ -26,7 +26,7 @@ import com.wavemaker.runtime.file.model.Downloadable;
 import com.wavemaker.sampleapps.web.wavecalendar.eventdb.models.query.*;
 
 @Service
-public class EventDbQueryExecutorServiceImpl_V1 implements EventDbQueryExecutorService_V1 {
+public class EventDBQueryExecutorServiceImpl_V1 implements EventDBQueryExecutorService_V1 {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EventDBQueryExecutorServiceImpl.class);
 

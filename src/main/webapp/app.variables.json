@@ -63,7 +63,7 @@
           "precision" : 19,
           "generator" : "assigned",
           "isRelated" : false,
-          "scale" : 0
+          "scale" : 2
         }, {
           "fieldName" : "password",
           "type" : "string",
@@ -75,7 +75,7 @@
           "precision" : 19,
           "generator" : "assigned",
           "isRelated" : false,
-          "scale" : 0
+          "scale" : 2
         }, {
           "fieldName" : "role",
           "type" : "string",
@@ -87,7 +87,7 @@
           "precision" : 19,
           "generator" : "assigned",
           "isRelated" : false,
-          "scale" : 0
+          "scale" : 2
         } ]
       }, {
         "fieldName" : "id",
@@ -112,7 +112,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "end",
         "type" : "timestamp",
@@ -124,7 +124,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "allDay",
         "type" : "boolean",
@@ -137,7 +137,7 @@
         "generator" : "assigned",
         "isRelated" : false,
         "defaultValue" : "false",
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "title",
         "type" : "string",
@@ -149,7 +149,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "url",
         "type" : "string",
@@ -161,7 +161,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "description",
         "type" : "string",
@@ -173,7 +173,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "color",
         "type" : "string",
@@ -185,7 +185,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       } ],
       "entityName" : "Events",
       "fullyQualifiedName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.Events",
@@ -251,7 +251,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "password",
         "type" : "string",
@@ -263,7 +263,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       }, {
         "fieldName" : "role",
         "type" : "string",
@@ -275,7 +275,7 @@
         "precision" : 19,
         "generator" : "assigned",
         "isRelated" : false,
-        "scale" : 0
+        "scale" : 2
       } ],
       "entityName" : "User",
       "fullyQualifiedName" : "com.wavemaker.sampleapps.web.wavecalendar.eventdb.User",

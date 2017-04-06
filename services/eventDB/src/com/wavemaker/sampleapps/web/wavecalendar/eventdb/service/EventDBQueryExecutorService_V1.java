@@ -17,7 +17,7 @@ import com.wavemaker.runtime.file.model.Downloadable;
 import com.wavemaker.sampleapps.web.wavecalendar.eventdb.models.query.*;
 
 @Deprecated
-public interface EventDbQueryExecutorService_V1 {
+public interface EventDBQueryExecutorService_V1 {
 
     @Deprecated
     public Page<Object> executeUserevents(Pageable pageable, Timestamp startdate, Timestamp enddate, Integer loggedinuser);
